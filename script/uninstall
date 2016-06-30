@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+#
+# uninstalls things.
+
+cd "$(dirname "$0")/.."
+DOTFILES_ROOT=$(pwd -P)
+
+set -e
+
+info () {
+  printf "\r  [ \033[00;34m..\033[0m ] $1\n"
+}
+
+user () {
+  printf "\r  [ \033[0;33m??\033[0m ] $1\n"
+}
+
+success () {
+  printf "\r\033[2K  [ \033[00;32mOK\033[0m ] $1\n"
+}
+
+fail () {
+  printf "\r\033[2K  [\033[0;31mFAIL\033[0m] $1\n"
+  echo ''
+  exit
+}
+
+uninstall_dotfiles () {
+  info 'uninstalling dotfiles'
+
+  for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
+  do
+    dst="$HOME/.$(basename "${src%.*}")"
+    info 'removing link '$dst
+    [ -f $dst ] && rm -rf $dst
+    [ -d $dst ] && rm -rf $dst
+  done
+}
+
+uninstall_ohmyzsh () {
+  info 'uninstalling oh-my-zsh'
+  rm -rf $HOME/.oh-my-zsh
+}
+
+uninstall_ohmyzsh
+uninstall_dotfiles
+
+exit 0
+
+

@@ -1,0 +1,6 @@
+[submodule "tmux"]
+	path = tmux
+	url = https://github.com/VyronLee/.tmux.git
+[submodule "vim"]
+	path = vim
+	url = https://github.com/VyronLee/vimrc.git

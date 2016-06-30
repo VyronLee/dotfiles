@@ -1,0 +1,21 @@
+#!/bin/sh
+#
+# Upgrade all bundles and modules
+
+export DOTFILES=$HOME/.dotfiles
+
+# Upgrade homebrew
+echo "› brew update"
+brew update || {
+    echo "› brew update failed!"
+    exit 1
+}
+
+# Upgrade submodule
+echo "› submodule update"
+git submodule update --recursive || {
+    echo "› submodule update failed!"
+    exit 1
+}
+
+exit 0

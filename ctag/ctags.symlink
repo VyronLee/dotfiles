@@ -1,0 +1,5 @@
+--fields=+l
+--regex-lua=/^.*\s*function[ \t]*([a-zA-Z0-9_]+):([a-zA-Z0-9_]+).*$/\2/f,functions/
+--regex-lua=/^.*\s*function[ \t]*([a-zA-Z0-9_]+)\.([a-zA-Z0-9_]+).*$/\2/f,functions/
+--regex-lua=/^.*\s*function[ \t]*([a-zA-Z0-9_]+)\s*\(.*$/\1/f,functions/
+--regex-lua=/^[ \t]*module[ \t\(]*\"([a-zA-Z0-9_]+)\".*$/\1/m,modules/
