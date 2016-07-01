@@ -17,7 +17,7 @@ brew 'diff-so-fancy'
 brew 'docker'
 brew 'docker-compose'
 brew 'fzf'
-brew 'git'
+brew 'git', args: ['with-gettext','with-pcre','without-completions']
 brew 'git-flow'
 brew 'imagemagick'
 brew 'lua'
