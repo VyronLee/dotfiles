@@ -1,6 +1,7 @@
 cask_args appdir: '/Applications'
 
 tap 'homebrew/bundle'
+tap 'homebrew/command-not-found'
 tap 'macvim-dev/macvim'
 
 brew 'aria2'
@@ -51,6 +52,7 @@ cask 'iterm2'
 cask 'itsycal'
 cask 'karabiner'
 cask 'lantern'
+cask 'macdown'
 cask 'omnidisksweeper'
 cask 'shiftit'
 cask 'sourcetree'
