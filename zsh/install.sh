@@ -19,6 +19,9 @@ else
         exit 1
     }
     echo "oh-my-zsh installed!"
+
+    #install theme
+    curl -fsSL https://raw.githubusercontent.com/oskarkrawczyk/honukai-iterm-zsh/master/honukai.zsh-theme > $HOME/.oh-my-zsh/themes/konukai.zsh-theme
 fi
 
 echo "changing default shell to zsh"
