@@ -1,0 +1,16 @@
+# http://docs.rubygems.org/read/chapter/11
+---
+gem: --no-ri --no-rdoc
+benchmark: false
+verbose: true
+update_sources: true
+sources:
+- https://ruby.taobao.org/
+- http://gems.rubyforge.org/
+- http://rubygems.org/
+backtrace: true
+bulk_threshold: 1000
+
+# HTTP Proxy options
+# http_proxy: http://127.0.0.1:6152
+# https_proxy: http://127.0.0.1:6152
