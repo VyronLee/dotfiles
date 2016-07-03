@@ -2,7 +2,9 @@
 #
 # Upgrade all bundles and modules
 
-export DOTFILES=$HOME/.dotfiles
+DOTFILES=$HOME/.dotfiles
+
+pushd $DOTFILES > /dev/null 2>&1
 
 # Upgrade homebrew
 echo "› brew update"
@@ -10,12 +12,28 @@ brew update || {
     echo "› brew update failed!"
     exit 1
 }
+echo "› brew update finished."
 
 # Upgrade submodule
 echo "› submodule update"
-git submodule update --recursive || {
+git submodule update --recursive --remote || {
     echo "› submodule update failed!"
     exit 1
 }
+echo "› submodule update finished."
+
+popd > /dev/null 2>&1
+
+# Upgrade oh-my-zsh
+pushd $HOME/.oh-my-zsh > /dev/null 2>&1
+echo "› oh-my-zsh update"
+git pull || {
+    echo "› oh-my-zsh update failed!"
+    exit 1
+}
+echo "› oh-my-zsh update finished."
+popd > /dev/null 2>&1
+
+echo "  Your dotfiles are up-to-date now!"
 
 exit 0
