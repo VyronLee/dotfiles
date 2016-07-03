@@ -48,3 +48,5 @@ source $ZSH/oh-my-zsh.sh
 #http_proxy=http://127.0.0.1:6152
 #https_proxy=http://127.0.0.1:6152
 
+# Fix python crash with vim and YCM plugin
+export DYLD_FORCE_FLAT_NAMESPACE=1
