@@ -23,7 +23,7 @@ brew 'imagemagick'
 brew 'lua'
 brew 'luajit'
 brew 'macvim-dev/macvim/macvim', args: ['HEAD','with-lua','with-override-system-vim']
-brew 'mpv'
+brew 'mpv', args: ['with-bundle']
 brew 'mono'
 brew 'node'
 brew 'openssl'
