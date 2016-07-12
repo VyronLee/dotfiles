@@ -1,0 +1,15 @@
+#!/bin/sh
+#
+# Usage: filename <file>
+
+filename () {
+    if [ -f $1  ]; then
+        base=$(basename "$1")
+        name=${base%.*}
+        echo $name
+    else
+        echo "'$1' is not a file."
+    fi
+}
+
+filename $1

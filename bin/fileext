@@ -1,0 +1,16 @@
+#!/bin/sh
+#
+# Usage: fileext <file>
+
+fileext () {
+    if [ -f $1  ]; then
+        base=$(basename "$1")
+        ext=${base##*.}
+        echo $ext
+    else
+        echo "'$1' is not a file."
+    fi
+}
+
+fileext $1
+
