@@ -4,3 +4,4 @@ aria2.symlink/aria2.log
 aria2.symlink/session.dat
 
 config.symlink/thefuck
+config.symlink/mpv/watch_later
