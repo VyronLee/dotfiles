@@ -5,7 +5,7 @@
 delds () {
     find . -name "*.DS_Store" | while read file; do
         echo "delete $file"
-        rm $file
+        rm "$file"
     done
 }
 
