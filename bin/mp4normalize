@@ -1,0 +1,17 @@
+#!/bin/sh
+#
+# Usage: mp4normalize <file> [<dst-file>]
+
+mp4normalize () {
+    if [ -f "$1"  ]; then
+        output_name="$2"
+        if [ "$output_name"_ == ""_ ]; then
+            output_name=$(filename "$1").mp4
+        fi
+        ffmpeg -i "$1" -vcodec h264 -acodec aac -strict -2 "$output_name"
+    else
+        echo "$1 is not a file."
+    fi
+}
+
+mp4normalize "$1" "$2"

@@ -1,0 +1,12 @@
+#!/bin/sh
+#
+# Delete all .DS_Store files recursive in current folder.
+
+delds () {
+    find . -name "*.DS_Store" | while read file; do
+        echo "delete $file"
+        rm $file
+    done
+}
+
+delds

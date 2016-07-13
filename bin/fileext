@@ -3,7 +3,7 @@
 # Usage: fileext <file>
 
 fileext () {
-    if [ -f $1  ]; then
+    if [ -f "$1"  ]; then
         base=$(basename "$1")
         ext=${base##*.}
         echo $ext
@@ -12,5 +12,5 @@ fileext () {
     fi
 }
 
-fileext $1
+fileext "$1"
 
