@@ -8,7 +8,7 @@ pushd $DOTFILES > /dev/null 2>&1
 
 # Upgrade homebrew
 echo "› brew update"
-brew update || {
+brew update && brew upgrade || {
     echo "› brew update failed!"
     exit 1
 }
