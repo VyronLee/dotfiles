@@ -1,0 +1,14 @@
+#!/bin/sh
+#
+# Usage: col <num>
+
+re='^[0-9]+$'
+col () {
+    if ! [[ $1 =~ $re ]] ; then
+       echo "error: Not a number: $1" >&2; exit 1
+    else
+        awk '{print $'$1'}'
+    fi
+}
+
+col "$1"
