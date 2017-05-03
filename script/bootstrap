@@ -7,6 +7,12 @@ DOTFILES_ROOT=$(pwd -P)
 
 set -e
 
+if test "$(uname)" = "Darwin"; then
+    SYS="macOS"
+elif test "$(expr substr $(uname -s) 1 5)" = "Linux"; then
+    SYS="Linux"
+fi
+
 ############################################################
 ## helper
 
@@ -112,24 +118,21 @@ setup_gitconfig () {
     fi
 }
 
-install_homebrew () {
-    # install homebrwe binary
-    if test ! $(which brew); then
-        info 'installing Homebrew'
-
-        # Install the correct homebrew for each OS type
-        if test "$(uname)" = "Darwin"; then
+install_packages () {
+    if test "$SYS" = "macOS"; then
+        # Install homebrew
+	if test ! $(which brew); then
+            info 'installing Homebrew'
             ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-        elif test "$(expr substr $(uname -s) 1 5)" = "Linux"; then
-            ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)"
         fi
+	# Install bundle
+	info 'brew bundle'
+	brew update
+	brew bundle --file=Brewfile-macOS #--verbose
+	brew linkapps
+    elif test "$SYS" = "Linux"; then
+	    cat apt-list | xargs sudo apt-get install -y
     fi
-
-    # install bundle
-    info 'brew bundle'
-    brew update
-    brew bundle #--verbose
-    brew linkapps
 }
 
 install_dependencies () {
@@ -150,7 +153,7 @@ install_dotfiles () {
 
 setup_gitconfig
 install_dotfiles
-install_homebrew
+install_packages 
 install_dependencies
 
 echo ''

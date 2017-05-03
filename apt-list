@@ -1,0 +1,16 @@
+build-essential
+curl 
+wget 
+cscope 
+exuberant-ctags 
+lua5.2 
+luajit 
+mono-complete 
+nodejs 
+npm
+python-pip 
+python3-pip 
+silversearcher-ag 
+tmux
+zsh
+cmake
