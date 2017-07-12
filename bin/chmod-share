@@ -1,0 +1,5 @@
+#!/bin/sh
+#
+# Change directory and files to 'share' mode(644 for files, 755 for directory)
+
+chmod -R u+rwX,go+rX,go-w "$1"
