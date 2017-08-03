@@ -5,6 +5,31 @@
 cd "$(dirname "$0")/.."
 DOTFILES_ROOT=$(pwd -P)
 
+dont_setup_git=false
+override_all=false
+backup_all=false
+skip_all=false
+while [ $# -gt 0 ]; do
+    case "$1" in
+        --dont-setup-git)
+            dont_setup_git=true
+            ;;
+        --override-all)
+            override_all=true
+            ;;
+        --backup-all)
+            backup_all=true
+            ;;
+        --skip-all)
+            skip_all=true
+            ;;
+        *)
+            echo "Illegal option $1"
+            ;;
+    esac
+    shift $(( $# > 0 ? 1: 0 ))
+done
+
 set -e
 
 if test "$(uname)" = "Darwin"; then
@@ -99,7 +124,7 @@ link_file () {
 ## steps
 
 setup_gitconfig () {
-    if ! [ -f git/gitconfig.local.symlink ]; then
+    if ! [ -f git/gitconfig.local.symlink -a "$dont_setup_git" == "true" ]; then
         info 'setup gitconfig'
 
         git_credential='cache'
@@ -121,17 +146,17 @@ setup_gitconfig () {
 install_packages () {
     if test "$SYS" = "macOS"; then
         # Install homebrew
-	if test ! $(which brew); then
+        if test ! $(which brew); then
             info 'installing Homebrew'
             ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
         fi
-	# Install bundle
-	info 'brew bundle'
-	brew update
-	brew bundle --file=Brewfile-macOS #--verbose
-	brew linkapps
+        # Install bundle
+        info 'brew bundle'
+        brew update
+        brew bundle --file=Brewfile-macOS #--verbose
+        brew linkapps
     elif test "$SYS" = "Linux"; then
-	    cat apt-list | xargs sudo apt-get install -y
+        cat apt-list | xargs sudo apt-get install -y
     fi
 }
 
@@ -142,8 +167,6 @@ install_dependencies () {
 
 install_dotfiles () {
     info 'installing dotfiles'
-
-    local overwrite_all=false backup_all=false skip_all=false
 
     for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '*.git*'); do
         dst="$HOME/.$(basename "${src%.*}")"
