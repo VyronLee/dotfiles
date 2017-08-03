@@ -5,6 +5,7 @@ cscope
 exuberant-ctags 
 lua5.2 
 luajit 
+mono-devel 
 mono-complete 
 nodejs 
 npm
