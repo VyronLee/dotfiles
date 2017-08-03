@@ -37,12 +37,16 @@ uninstall_dotfiles () {
   done
 }
 
-uninstall_ohmyzsh () {
-  info 'uninstalling oh-my-zsh'
-  rm -rf $HOME/.oh-my-zsh
+uninstall_extension () {
+  info 'uninstalling extensions '
+  for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name 'uninstall.sh' -not -path '*.git*')
+  do
+    info 'running uninstaller: '$src 
+    bash $src
+  done
 }
 
-uninstall_ohmyzsh
+uninstall_extension
 uninstall_dotfiles
 
 exit 0
