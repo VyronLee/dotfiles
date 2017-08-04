@@ -6,7 +6,7 @@ cd "$(dirname "$0")/.."
 DOTFILES_ROOT=$(pwd -P)
 
 dont_setup_git=false
-override_all=false
+overwrite_all=false
 backup_all=false
 skip_all=false
 while [ $# -gt 0 ]; do
@@ -14,8 +14,8 @@ while [ $# -gt 0 ]; do
         --dont-setup-git)
             dont_setup_git=true
             ;;
-        --override-all)
-            override_all=true
+        --overwrite-all)
+            overwrite_all=true
             ;;
         --backup-all)
             backup_all=true
@@ -97,6 +97,9 @@ link_file () {
         overwrite=${overwrite:-$overwrite_all}
         backup=${backup:-$backup_all}
         skip=${skip:-$skip_all}
+        echo overwrite $overwrite $overwrite_all 
+        echo backup $backup $backup_all 
+        echo skip $skip $skip_all 
 
         if [ "$overwrite" == "true" ]; then
             rm -rf "$dst"
@@ -182,4 +185,5 @@ install_packages
 install_dependencies
 
 echo ''
-echo '  All installed!'
+echo '  All installed! You may want to change zsh to default with:'
+echo '  =>$ chsh -s $(grep /zsh$ /etc/shells | tail -1)'
