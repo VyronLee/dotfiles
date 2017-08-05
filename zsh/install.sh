@@ -24,5 +24,3 @@ else
     curl -fsSL https://raw.githubusercontent.com/oskarkrawczyk/honukai-iterm-zsh/master/honukai.zsh-theme > $HOME/.oh-my-zsh/themes/honukai.zsh-theme
 fi
 
-echo "changing default shell to zsh"
-chsh -s $(grep /zsh$ /etc/shells | tail -1)
