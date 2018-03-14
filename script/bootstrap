@@ -32,10 +32,21 @@ done
 
 set -e
 
+get_distribution() {
+	lsb_dist=""
+	# Every system that we officially support has /etc/os-release
+	if [ -r /etc/os-release ]; then
+		lsb_dist="$(. /etc/os-release && echo "$ID")"
+	fi
+	# Returning an empty string here should be alright since the
+	# case statements don't act unless you provide an actual value
+    echo "$(echo "$lsb_dist" | tr '[:upper:]' '[:lower:]')"
+}
+
 if test "$(uname)" = "Darwin"; then
-    SYS="macOS"
+    SYS="macos"
 elif test "$(expr substr $(uname -s) 1 5)" = "Linux"; then
-    SYS="Linux"
+    SYS="$(get_distribution)"
 fi
 
 ############################################################
@@ -149,7 +160,7 @@ setup_gitconfig () {
 }
 
 install_packages () {
-    if test "$SYS" = "macOS"; then
+    if test "$SYS" = "macos"; then
         # Install homebrew
         if test ! $(which brew); then
             info 'installing Homebrew'
@@ -158,10 +169,12 @@ install_packages () {
         # Install bundle
         info 'brew bundle'
         brew update
-        brew bundle --file=Brewfile-macOS #--verbose
+        brew bundle --file=deps/macos.deps --verbose
         brew linkapps
-    elif test "$SYS" = "Linux"; then
-        cat apt-list | xargs sudo apt-get install -y
+    elif test "$SYS" = "ubuntu"; then
+        cat deps/ubuntu.deps | xargs sudo apt-get install -y
+    else
+        fail 'unsupport platform: $SYS' 
     fi
 }
 
