@@ -17,6 +17,7 @@ let g:spacevim_colorscheme = 'nord'
 let g:spacevim_filemanager = 'nerdtree'
 let g:spacevim_github_username = 'VyronLee'
 let g:spacevim_enable_ycm = 0
+let g:spacevim_enable_guicolors = 1
 let g:spacevim_keep_server_alive = 1
 
 let g:spacevim_custom_plugins = [
