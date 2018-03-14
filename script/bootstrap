@@ -172,9 +172,16 @@ install_packages () {
         brew bundle --file=deps/macos.deps --verbose
         brew linkapps
     elif test "$SYS" = "ubuntu"; then
-        cat deps/ubuntu.deps | xargs sudo apt-get install -y
+	    for pkg in ubuntu/arch.deps; do sudo apt-get install -y $pkg; done
+    elif test "$SYS" = "arch"; then
+        # Install yaourt
+        if test ! $(which yaourt); then
+            info 'installing yaourt'
+            echo y | sh script/utils/yaourt-install
+        fi
+	    for pkg in deps/arch.deps; do yaourt -Sy --noconfirm $pkg; done
     else
-        fail 'unsupport platform: $SYS' 
+        fail 'unsupport platform: '$SYS 
     fi
 }
 

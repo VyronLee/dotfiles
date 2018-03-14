@@ -1,0 +1,17 @@
+#!/bin/bash -e
+
+# Install dependences.
+sudo pacman -Sy --noconfirm git base-devel
+
+# Install package-query
+pushd /tmp && rm -rf package-query
+git clone https://aur.archlinux.org/package-query.git
+pushd package-query && makepkg -si --noconfirm && popd
+popd
+
+# Install yaourt
+pushd /tmp && rm -rf yaourt
+git clone https://aur.archlinux.org/yaourt.git
+pushd yaourt && makepkg -si --noconfirm && popd
+popd
+

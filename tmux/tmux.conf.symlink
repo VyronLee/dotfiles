@@ -17,10 +17,6 @@ set -g @plugin 'arcticicestudio/nord-tmux'
 # GNU-Screen compatible prefix
 set -g prefix2 C-a                        
 
-# utf8 is on
-set -g utf8 on
-set -g status-utf8 on
-
 # address vim mode switching delay (http://superuser.com/a/252717/65504)
 set -s escape-time 0
 
