@@ -1,0 +1,56 @@
+############################ List of plugins #################################
+
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'tmux-plugins/tmux-copycat'
+set -g @plugin 'tmux-plugins/tmux-yank'
+set -g @plugin 'tmux-plugins/tmux-open'
+set -g @plugin 'tmux-plugins/tmux-continuum'
+set -g @plugin 'tmux-plugins/tmux-pain-control'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'tmux-plugins/tmux-fpp'
+set -g @plugin 'tmux-plugins/vim-tmux-focus-events'
+set -g @plugin 'arcticicestudio/nord-tmux'
+
+############################# Configration ###################################
+
+# GNU-Screen compatible prefix
+set -g prefix2 C-a                        
+
+# utf8 is on
+set -g utf8 on
+set -g status-utf8 on
+
+# address vim mode switching delay (http://superuser.com/a/252717/65504)
+set -s escape-time 0
+
+# increase scrollback buffer size
+set -g history-limit 50000
+
+# tmux messages are displayed for 4 seconds
+set -g display-time 4000
+
+# refresh 'status-left' and 'status-right' more often
+set -g status-interval 5
+
+# set only on OS X where it's required
+# see https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard
+if 'which -s reattach-to-user-namespace' 'set -g default-command "exec initializing... 2> /dev/null & reattach-to-user-namespace $SHELL -l"'
+
+# upgrade $TERM
+set -g default-terminal "screen-256color"
+
+# emacs key bindings in tmux command prompt (prefix + :) are better than
+# vi keys, even for vim users
+set -g status-keys emacs
+
+# focus events enabled for terminals that support them
+set -g focus-events on
+
+# super useful when using "grouped sessions" and multi-monitor setup
+setw -g aggressive-resize on
+
+###############################################################################
+# Initialize TMUX plugin manager (keep this line at the bottom of tmux.conf)
+
+run '~/.tmux/plugins/tpm/tpm'

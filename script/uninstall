@@ -28,7 +28,7 @@ fail () {
 uninstall_dotfiles () {
   info 'uninstalling dotfiles'
 
-  for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
+  for src in $(find -H "$DOTFILES_ROOT" -name '*.symlink' -not -path '*.git*' -maxdepth 2 )
   do
     dst="$HOME/.$(basename "${src%.*}")"
     info 'removing link '$dst

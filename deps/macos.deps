@@ -41,10 +41,6 @@ cask 'google-chrome'
 cask 'iterm2'
 cask 'itsycal'
 cask 'shiftit'
-cask 'sourcetree'
-cask 'squirrel'
-cask 'slack'
-cask 'tunnelblick'
 
 #quick looks plugins
 cask 'qlcolorcode'
@@ -57,9 +53,3 @@ cask 'betterzipql'
 cask 'qlimagesize'
 cask 'webpquicklook'
 cask 'suspicious-package'
-
-#the bundles below needs a lisence
-cask 'alfred'
-cask 'bartender'
-cask 'cleanmymac'
-cask 'istat-menus'
