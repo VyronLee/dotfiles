@@ -108,9 +108,6 @@ link_file () {
         overwrite=${overwrite:-$overwrite_all}
         backup=${backup:-$backup_all}
         skip=${skip:-$skip_all}
-        echo overwrite $overwrite $overwrite_all 
-        echo backup $backup $backup_all 
-        echo skip $skip $skip_all 
 
         if [ "$overwrite" == "true" ]; then
             rm -rf "$dst"
@@ -171,15 +168,31 @@ install_packages () {
         brew update
         brew bundle --file=deps/macos.deps --verbose
         brew linkapps
+
     elif test "$SYS" = "ubuntu"; then
-	    for pkg in ubuntu/arch.deps; do sudo apt-get install -y $pkg; done
+        # Install repos
+        sudo apt-get update
+        sudo apt-get install -y software-properties-common
+
+        sudo apt-get update
+        sudo add-apt-repository -y ppa:neovim-ppa/stable
+
+        # Install packages
+	    while read pkg; do 
+            sudo apt-get install -y $pkg
+        done < deps/ubuntu.deps
+
     elif test "$SYS" = "arch"; then
         # Install yaourt
         if test ! $(which yaourt); then
             info 'installing yaourt'
             echo y | sh script/utils/yaourt-install
         fi
-	    for pkg in deps/arch.deps; do yaourt -Sy --noconfirm $pkg; done
+        # Install packages
+	    for pkg in deps/arch.deps; do 
+            yaourt -Sy --noconfirm $pkg
+        done
+
     else
         fail 'unsupport platform: '$SYS 
     fi
