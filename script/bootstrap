@@ -33,13 +33,13 @@ done
 set -e
 
 get_distribution() {
-	lsb_dist=""
-	# Every system that we officially support has /etc/os-release
-	if [ -r /etc/os-release ]; then
-		lsb_dist="$(. /etc/os-release && echo "$ID")"
-	fi
-	# Returning an empty string here should be alright since the
-	# case statements don't act unless you provide an actual value
+    lsb_dist=""
+    # Every system that we officially support has /etc/os-release
+    if [ -r /etc/os-release ]; then
+        lsb_dist="$(. /etc/os-release && echo "$ID")"
+    fi
+    # Returning an empty string here should be alright since the
+    # case statements don't act unless you provide an actual value
     echo "$(echo "$lsb_dist" | tr '[:upper:]' '[:lower:]')"
 }
 
@@ -174,11 +174,11 @@ install_packages () {
         sudo apt-get update
         sudo apt-get install -y software-properties-common
 
-        sudo apt-get update
         sudo add-apt-repository -y ppa:neovim-ppa/stable
+        sudo apt-get update
 
         # Install packages
-	    while read pkg; do 
+        while read pkg; do 
             sudo apt-get install -y $pkg
         done < deps/ubuntu.deps
 
@@ -189,7 +189,7 @@ install_packages () {
             echo y | sh script/utils/yaourt-install
         fi
         # Install packages
-	    for pkg in deps/arch.deps; do 
+        for pkg in deps/arch.deps; do 
             yaourt -Sy --noconfirm $pkg
         done
 
