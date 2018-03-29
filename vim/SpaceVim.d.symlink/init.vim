@@ -42,9 +42,18 @@ call SpaceVim#layers#load('tools#screensaver')
 call SpaceVim#layers#load('tags')
 call SpaceVim#layers#load('git')
 
-let g:deoplete#auto_complete_delay = 150
+let s:SYSTEM = SpaceVim#api#import('system')
 
-let g:chromatica#libclang_path = '/usr/local/opt/llvm@4/lib'
+let g:deoplete#auto_complete_delay = 150
+let g:deoplete#sources#clang#preproc_max_lines = 50
+
+let g:neomake_cc_enabled_makers = ["clang"]
+
+if s:SYSTEM.isOSX
+    let g:chromatica#libclang_path = '/usr/local/opt/llvm@5/lib'
+elseif s:SYSTEM.isLinux
+    let g:chromatica#libclang_path = '/usr/lib/llvm-5.0/lib'
+endif
 
 let g:nord_italic = 1
 let g:nord_italic_comments = 1

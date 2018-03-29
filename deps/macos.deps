@@ -19,6 +19,7 @@ brew 'git', args: ['with-gettext','with-pcre','without-completions']
 brew 'git-flow'
 brew 'lua'
 brew 'luajit'
+brew 'llvm@5'
 brew 'macvim-dev/macvim/macvim', args: ['HEAD','with-lua','with-override-system-vim']
 brew 'neovim'
 brew 'mpv', args: ['with-bundle']
