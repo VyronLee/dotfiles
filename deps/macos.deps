@@ -2,7 +2,6 @@ cask_args appdir: '/Applications'
 
 tap 'homebrew/bundle'
 tap 'homebrew/command-not-found'
-tap 'macvim-dev/macvim'
 
 brew 'aria2'
 brew 'autoconf'
@@ -20,7 +19,7 @@ brew 'git-flow'
 brew 'lua'
 brew 'luajit'
 brew 'llvm@5'
-brew 'macvim-dev/macvim/macvim', args: ['HEAD','with-lua','with-override-system-vim']
+brew 'vim', args: ['with-client-server','with-gettext','with-lua','with-override-system-vi']
 brew 'neovim'
 brew 'mpv', args: ['with-bundle']
 brew 'mono'
