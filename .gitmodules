@@ -1,3 +1,0 @@
-[submodule "vim/SpaceVim.symlink"]
-	path = vim/SpaceVim.symlink
-	url = https://github.com/VyronLee/SpaceVim.git
