@@ -1,3 +1,8 @@
+" File              : /Users/vyronlee/.SpaceVim.d/init.vim
+" Author            : VyronLee <lwz_jz@hotmail.com>
+" Date              : 07.04.2018
+" Last Modified Date: 2018/04/07 Apr:44
+" Last Modified By  : VyronLee <lwz_jz@hotmail.com>
 set nowrap
 
 " let g:spacevim_enable_debug = 1
@@ -7,7 +12,7 @@ let g:spacevim_enable_tabline_filetype_icon = 1
 let g:spacevim_enable_statusline_display_mode = 0
 let g:spacevim_enable_os_fileformat_icon = 1
 let g:spacevim_enable_neomake = 1
-let g:spacevim_snippet_engine = 'ultisnips'
+"let g:spacevim_snippet_engine = 'ultisnips'
 let g:spacevim_buffer_index_type = 1
 let g:spacevim_default_indent = 4
 let g:spacevim_max_column = 80
@@ -22,6 +27,7 @@ let g:spacevim_keep_server_alive = 1
 let g:spacevim_custom_plugins = [
     \ ['arcticicestudio/nord-vim'],
     \ ['nathanaelkane/vim-indent-guides'],
+    \ ['alpertuna/vim-header'],
 \ ]
 
 let g:spacevim_disabled_plugins = [
@@ -49,7 +55,6 @@ elseif s:SYSTEM.isLinux
     let g:deoplete#sources#clang#executable = '/usr/bin/clang-5.0'
 endif
 
-
 let g:nord_italic = 1
 let g:nord_italic_comments = 1
 let g:nord_comment_brightness = 12
@@ -58,7 +63,6 @@ let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
 
-let g:snips_author = 'VyronLee'
-let g:snips_email = 'lwz_jz@hotmail.com'
-let g:snips_company = 'Xunshantec Ltd.'
-let g:snips_license = 'Apache License 2.0'
+let g:header_field_author = 'VyronLee'
+let g:header_field_author_email = 'lwz_jz@hotmail.com'
+let g:header_field_timestamp_format = '%Y/%m/%d %H:%M'
