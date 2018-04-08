@@ -1,8 +1,3 @@
-" File              : /Users/vyronlee/.SpaceVim.d/init.vim
-" Author            : VyronLee <lwz_jz@hotmail.com>
-" Date              : 07.04.2018
-" Last Modified Date: 2018/04/07 Apr:44
-" Last Modified By  : VyronLee <lwz_jz@hotmail.com>
 set nowrap
 
 " let g:spacevim_enable_debug = 1
@@ -43,7 +38,7 @@ call SpaceVim#layers#load('lang#vim')
 call SpaceVim#layers#load('shell')
 call SpaceVim#layers#load('tags')
 call SpaceVim#layers#load('git')
-call SpaceVim#layers#load('unite')
+call SpaceVim#layers#load('denite')
 
 let s:SYSTEM = SpaceVim#api#import('system')
 
@@ -51,8 +46,8 @@ if s:SYSTEM.isOSX
     let g:chromatica#libclang_path = '/usr/local/opt/llvm@5/lib'
     let g:deoplete#sources#clang#executable = '/usr/local/opt/llvm@5/bin/clang'
 elseif s:SYSTEM.isLinux
-    let g:chromatica#libclang_path = '/usr/lib/llvm-5.0/lib'
-    let g:deoplete#sources#clang#executable = '/usr/bin/clang-5.0'
+    let g:chromatica#libclang_path = '/usr/lib'
+    let g:deoplete#sources#clang#executable = '/usr/bin/clang'
 endif
 
 let g:nord_italic = 1
@@ -63,6 +58,7 @@ let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
 
+let g:header_auto_add_header = 0
 let g:header_field_author = 'VyronLee'
 let g:header_field_author_email = 'lwz_jz@hotmail.com'
 let g:header_field_timestamp_format = '%Y/%m/%d %H:%M'
