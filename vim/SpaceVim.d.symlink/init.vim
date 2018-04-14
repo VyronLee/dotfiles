@@ -7,7 +7,7 @@ let g:spacevim_enable_tabline_filetype_icon = 1
 let g:spacevim_enable_statusline_display_mode = 0
 let g:spacevim_enable_os_fileformat_icon = 1
 let g:spacevim_enable_neomake = 1
-"let g:spacevim_snippet_engine = 'ultisnips'
+let g:spacevim_snippet_engine = 'ultisnips'
 let g:spacevim_buffer_index_type = 1
 let g:spacevim_default_indent = 4
 let g:spacevim_max_column = 80
@@ -21,7 +21,6 @@ let g:spacevim_keep_server_alive = 1
 
 let g:spacevim_custom_plugins = [
     \ ['arcticicestudio/nord-vim'],
-    \ ['nathanaelkane/vim-indent-guides'],
     \ ['alpertuna/vim-header'],
 \ ]
 
@@ -44,19 +43,13 @@ let s:SYSTEM = SpaceVim#api#import('system')
 
 if s:SYSTEM.isOSX
     let g:chromatica#libclang_path = '/usr/local/opt/llvm@5/lib'
-    let g:deoplete#sources#clang#executable = '/usr/local/opt/llvm@5/bin/clang'
 elseif s:SYSTEM.isLinux
     let g:chromatica#libclang_path = '/usr/lib'
-    let g:deoplete#sources#clang#executable = '/usr/bin/clang'
 endif
 
 let g:nord_italic = 1
 let g:nord_italic_comments = 1
 let g:nord_comment_brightness = 12
-
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_guide_size = 1
-let g:indent_guides_start_level = 2
 
 let g:header_auto_add_header = 0
 let g:header_field_author = 'VyronLee'
