@@ -11,6 +11,7 @@ set -g @plugin 'tmux-plugins/tmux-sensible'
 set -g @plugin 'tmux-plugins/tmux-fpp'
 set -g @plugin 'tmux-plugins/vim-tmux-focus-events'
 set -g @plugin 'arcticicestudio/nord-tmux'
+set -g @plugin 'nhdaly/tmux-better-mouse-mode'
 
 ############################# Configration ###################################
 
@@ -49,6 +50,13 @@ set -g focus-events on
 
 # super useful when using "grouped sessions" and multi-monitor setup
 setw -g aggressive-resize on
+
+# start windows and panes at 1, not 0
+set -g base-index 1
+setw -g pane-base-index 1
+
+# enable mouse mode 
+setw -g mouse on
 
 ###############################################################################
 # Initialize TMUX plugin manager (keep this line at the bottom of tmux.conf)

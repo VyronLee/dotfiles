@@ -2,6 +2,7 @@ build-essential
 curl 
 cmake
 cscope 
+clang-5.0
 exuberant-ctags 
 lua5.2 
 luajit 
@@ -13,6 +14,7 @@ python-dev
 python3-dev
 silversearcher-ag 
 tmux
+ttf-mscorefonts-installer
 vim
 neovim
 wget 
