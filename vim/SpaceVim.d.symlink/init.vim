@@ -37,7 +37,7 @@ call SpaceVim#layers#load('lang#vim')
 call SpaceVim#layers#load('shell')
 call SpaceVim#layers#load('tags')
 call SpaceVim#layers#load('git')
-call SpaceVim#layers#load('denite')
+call SpaceVim#layers#load('unite')
 
 let s:SYSTEM = SpaceVim#api#import('system')
 
@@ -46,6 +46,12 @@ if s:SYSTEM.isOSX
 elseif s:SYSTEM.isLinux
     let g:chromatica#libclang_path = '/usr/lib'
 endif
+
+" Put your omnisharp.exe path here
+let g:OmniSharp_server_path = $HOME . '/source/omnisharp-roslyn/omnisharp/OmniSharp.exe'
+let g:OmniSharp_selector_ui = 'unite'
+let g:OmniSharp_server_use_mono = 1
+let g:Omnisharp_start_server = 0
 
 let g:nord_italic = 1
 let g:nord_italic_comments = 1
