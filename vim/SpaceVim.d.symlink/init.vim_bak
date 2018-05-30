@@ -22,6 +22,7 @@ let g:spacevim_keep_server_alive = 1
 let g:spacevim_custom_plugins = [
     \ ['arcticicestudio/nord-vim'],
     \ ['alpertuna/vim-header'],
+    \ ['tweekmonster/startuptime.vim'],
 \ ]
 
 let g:spacevim_disabled_plugins = [
@@ -37,7 +38,7 @@ call SpaceVim#layers#load('lang#vim')
 call SpaceVim#layers#load('shell')
 call SpaceVim#layers#load('tags')
 call SpaceVim#layers#load('git')
-call SpaceVim#layers#load('unite')
+call SpaceVim#layers#load('denite')
 
 let s:SYSTEM = SpaceVim#api#import('system')
 
@@ -48,10 +49,15 @@ elseif s:SYSTEM.isLinux
 endif
 
 " Put your omnisharp.exe path here
-let g:OmniSharp_server_path = $HOME . '/source/omnisharp-roslyn/omnisharp/OmniSharp.exe'
-let g:OmniSharp_selector_ui = 'unite'
-let g:OmniSharp_server_use_mono = 1
-let g:Omnisharp_start_server = 0
+" let g:OmniSharp_server_path = $HOME . '/source/omnisharp-roslyn/omnisharp/OmniSharp.exe'
+let g:OmniSharp_server_path = $HOME . '/source/omnisharp-server/OmniSharp/bin/Debug/OmniSharp.exe'
+" let g:OmniSharp_selector_ui = 'unite'
+" let g:OmniSharp_server_use_mono = 1
+let g:Omnisharp_start_server = 1
+let g:OmniSharp_server_type = 'v1'
+let g:syntastic_cs_checkers = ['syntax', 'semantic', 'issues']
+
+let g:NERDTreeWinPos = 'left'
 
 let g:nord_italic = 1
 let g:nord_italic_comments = 1

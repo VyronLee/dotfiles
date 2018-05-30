@@ -1,3 +1,7 @@
+# File              : tmux/tmux.conf.symlink
+# Date              : 30.05.2018
+# Last Modified Date: 30.05.2018
+
 ############################ List of plugins #################################
 
 set -g @plugin 'tmux-plugins/tpm'
@@ -9,11 +13,16 @@ set -g @plugin 'tmux-plugins/tmux-continuum'
 set -g @plugin 'tmux-plugins/tmux-pain-control'
 set -g @plugin 'tmux-plugins/tmux-sensible'
 set -g @plugin 'tmux-plugins/tmux-fpp'
+set -g @plugin 'tmux-plugins/tmux-sidebar'
 set -g @plugin 'tmux-plugins/vim-tmux-focus-events'
+set -g @plugin 'tmux-plugins/tmux-fpp'
 set -g @plugin 'arcticicestudio/nord-tmux'
 set -g @plugin 'nhdaly/tmux-better-mouse-mode'
 
 ############################# Configration ###################################
+
+# enable mouse mode 
+setw -g mouse on
 
 # GNU-Screen compatible prefix
 set -g prefix2 C-a                        
@@ -32,7 +41,7 @@ set -g status-interval 5
 
 # set only on OS X where it's required
 # see https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard
-if 'which -s reattach-to-user-namespace' 'set -g default-command "exec initializing... 2> /dev/null & reattach-to-user-namespace $SHELL -l"'
+# if 'which -s reattach-to-user-namespace' 'set -g default-command "exec initializing... 2> /dev/null & reattach-to-user-namespace $SHELL -l"'
 
 # upgrade $TERM
 set -g default-terminal "xterm-256color"
@@ -41,9 +50,8 @@ set -g default-terminal "xterm-256color"
 # see https://github.com/arcticicestudio/nord-tmux/issues/15#issuecomment-341715220
 set-option -ga terminal-overrides ",xterm-256color:Tc"
 
-# emacs key bindings in tmux command prompt (prefix + :) are better than
-# vi keys, even for vim users
-set -g status-keys emacs
+# vi key bindings
+set -g status-keys vi
 
 # focus events enabled for terminals that support them
 set -g focus-events on
@@ -55,10 +63,9 @@ setw -g aggressive-resize on
 set -g base-index 1
 setw -g pane-base-index 1
 
-# enable mouse mode 
-setw -g mouse on
+# colorize the tree directory listing in the sidebar
+set -g @sidebar-tree-command 'tree -C'
 
 ###############################################################################
 # Initialize TMUX plugin manager (keep this line at the bottom of tmux.conf)
-
 run '~/.tmux/plugins/tpm/tpm'
