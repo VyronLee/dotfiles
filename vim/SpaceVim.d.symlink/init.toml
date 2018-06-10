@@ -1,0 +1,52 @@
+[options]
+    colorscheme = "nord"
+    background = "dark"
+    guicolors = true
+    statusline_separator = "arrow"
+    statusline_inactive_separator = "arrow"
+    buffer_index_type = 1
+    default_indent = 4
+    enable_tabline_filetype_icon = true
+    statusline_display_mode = true
+    snippet_engine = "ultisnips"
+    filemanager = "nerdtree"
+    enable_ale = true
+    bootstrap_before = "myspacevim#after"
+
+[[layers]]
+name = "autocomplete"
+auto-completion-return-key-behavior = "complete"
+auto-completion-tab-key-behavior = "smart"
+[[layers]]
+name = "shell"
+default_position = "top"
+default_height = 30
+[[layers]]
+name = "lang#c"
+[[layers]]
+name = "lang#csharp"
+[[layers]]
+name = "lang#lua"
+[[layers]]
+name = "lang#python"
+[[layers]]
+name = "lang#vim"
+[[layers]]
+name = "lang#json"
+[[layers]]
+name = "tmux"
+[[layers]]
+name = "denite"
+[[layers]]
+name = "git"
+
+[[custom_plugins]]
+name = "arcticicestudio/nord-vim"
+[[custom_plugins]]
+name = "alpertuna/vim-header"
+[[custom_plugins]]
+name = "tweekmonster/startuptime.vim"
+
+[[disabled_plugins]]
+name = "floobits-neovim"
+
