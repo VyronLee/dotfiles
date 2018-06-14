@@ -167,7 +167,6 @@ install_packages () {
         info 'brew bundle'
         brew update
         brew bundle --file=deps/macos.deps --verbose
-        brew linkapps
 
     elif test "$SYS" = "ubuntu"; then
         # Install repos

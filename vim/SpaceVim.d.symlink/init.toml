@@ -46,6 +46,9 @@ name = "arcticicestudio/nord-vim"
 name = "alpertuna/vim-header"
 [[custom_plugins]]
 name = "tweekmonster/startuptime.vim"
+[[custom_plugins]]
+name = "yuttie/comfortable-motion.vim"
+
 
 [[disabled_plugins]]
 name = "floobits-neovim"
