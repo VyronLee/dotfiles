@@ -31,3 +31,4 @@ let g:header_auto_add_header = 0
 let g:header_field_author = 'VyronLee'
 let g:header_field_author_email = 'lwz_jz@hotmail.com'
 let g:header_field_timestamp_format = '%Y/%m/%d %H:%M'
+

@@ -48,6 +48,10 @@ name = "alpertuna/vim-header"
 name = "tweekmonster/startuptime.vim"
 [[custom_plugins]]
 name = "yuttie/comfortable-motion.vim"
+[[custom_plugins]]
+name = "dyng/ctrlsf.vim"
+[[custom_plugins]]
+name = "dbeniamine/cheat.sh-vim"
 
 
 [[disabled_plugins]]
