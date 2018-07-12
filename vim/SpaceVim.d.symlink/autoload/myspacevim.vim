@@ -22,6 +22,7 @@ let g:OmniSharp_server_type = 'v1'
 let g:syntastic_cs_checkers = ['syntax', 'semantic', 'issues']
 
 let g:NERDTreeWinPos = 'left'
+let g:NERDTreeIgnore = ['\.meta$']
 
 let g:nord_italic = 1
 let g:nord_italic_comments = 1
