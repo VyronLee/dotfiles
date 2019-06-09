@@ -26,7 +26,6 @@ let g:NERDTreeIgnore = ['\.meta$']
 
 let g:nord_italic = 1
 let g:nord_italic_comments = 1
-let g:nord_comment_brightness = 12
 
 let g:header_auto_add_header = 0
 let g:header_field_author = 'VyronLee'

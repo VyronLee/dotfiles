@@ -36,7 +36,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-flow z brew brew-cask zsh-autosuggestions docker docker-compose command-not-found cp extract rsync sudo vi-mode)
+plugins=(git git-flow gitfast svn z brew zsh-autosuggestions docker docker-compose command-not-found cp extract rsync sudo vi-mode)
 
 # Load oh-my-zsh setting
 source $ZSH/oh-my-zsh.sh
